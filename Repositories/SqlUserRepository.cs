@@ -21,5 +21,22 @@ namespace DatingApi.Repositories
         {
             return _context.Users.SingleOrDefault(a => a.Id == id);
         }
+        public AppUser GetUserByUsername(string username)
+        {
+            return _context.Users.SingleOrDefault(u => u.Username == username);
+        }
+        public void Create(AppUser user)
+        {
+            _context.Users.Add(user);
+        }
+        public bool SaveChanges()
+        {
+            return _context.SaveChanges() >= 0;
+        }
+        public bool UserExists(string username)
+        {
+            return _context.Users.Any(u => u.Username == username.ToLower());
+        }
+
     }
 }

@@ -18,6 +18,14 @@ namespace DatingApi.Data
                 .IsRequired()
                 .HasMaxLength(255);
 
+            modelBuilder.Entity<AppUser>()
+                .Property(a => a.PasswordHash)
+                .IsRequired();
+
+            modelBuilder.Entity<AppUser>()
+                .Property(a => a.PasswordSalt)
+                .IsRequired();
+
             base.OnModelCreating(modelBuilder);
         }
     }

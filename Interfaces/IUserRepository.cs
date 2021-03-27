@@ -7,5 +7,9 @@ namespace DatingApi.Repositories
     {
         IEnumerable<AppUser> GetAllUsers();
         AppUser GetUserById(int id);
+        AppUser GetUserByUsername(string username);
+        void Create(AppUser user);
+        bool SaveChanges();
+        bool UserExists(string username);
     }
 }
